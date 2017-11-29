@@ -10,15 +10,15 @@
 <h1>Cadastro de Pessoa</h1>
 
 
-<p:dataTable value="#{pessoaController.pessoas}" var="pessoa" >
+<p:dataTable value="#{pessoaController.pessoas}" var="p">
 	<p:column headerText="Id" >
-		<p:outputLabel value="#{pessoa.id}" />
+		<p:outputLabel value="#{p.id}" />
 	</p:column>
-	<p:column headerText="Nome">
-		<p:outputLabel value="#{pessoa.nome}" />
+	<p:column headerText="Nome" sortBy="#{p.nome}" >
+		<p:outputLabel value="#{p.nome}" />
 	</p:column>
 	<p:column headerText="cpf" >
-		<p:outputLabel value="#{pessoa.cpf}" />
+		<p:outputLabel value="#{p.cpf}" />
 	</p:column>
 
 </p:dataTable>

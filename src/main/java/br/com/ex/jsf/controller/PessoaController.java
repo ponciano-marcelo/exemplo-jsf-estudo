@@ -1,15 +1,12 @@
-package br.com.ex.jsf;
+package br.com.ex.jsf.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ex.jsf.model.Pessoa;
 import br.com.ex.jsf.repository.PessoaRepo;
@@ -20,11 +17,11 @@ import lombok.Setter;
 @ViewScoped
 public class PessoaController {
 	
-	@Autowired
-	PessoaRepo pessoaRepo;
+	@Inject
+	private PessoaRepo pessoaRepo;
 	
 	
-	@Getter @Setter
+	
 	private List<Pessoa> pessoas = new ArrayList<>();
 	
 	@PostConstruct
@@ -32,6 +29,14 @@ public class PessoaController {
 		
 		this.pessoas = pessoaRepo.findAll();
 		
+	}
+
+	public List<Pessoa> getPessoas() {
+		return pessoas;
+	}
+
+	public void setPessoas(List<Pessoa> pessoas) {
+		this.pessoas = pessoas;
 	}
 	
 
